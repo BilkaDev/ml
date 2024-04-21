@@ -1,0 +1,15 @@
+Lp.,Obsługa,Jakość towaru,Obok drogi,Centrum,Decyzja
+1,Dobra,Dobra,Nie,Nie,Strata
+2,Dobra,Dobra,Nie,Tak,Strata
+3,Bardzo dobra,Dobra,Nie,Nie,Zysk
+4,Słaba,Super,Nie,Nie,Zysk
+5,Słaba,Niska,Tak,Nie,Zysk
+6,Słaba,Niska,Tak,Tak,Strata
+7,Bardzo dobra,Niska,Tak,Tak,Strata
+8,Dobra,Super,Nie,Nie,Zysk
+9,Dobra,Niska,Tak,Nie,Zysk
+10,Słaba,Super,Nie,Nie,Zysk
+11,Bardzo dobra,Super,Nie,Tak,Zysk
+12,Dobra,Super,Nie,Tak,Zysk
+13,Bardzo dobra,Dobra,Tak,Nie,
+14,Słaba,Super,Nie,Tak,

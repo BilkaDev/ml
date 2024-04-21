@@ -1,0 +1,15 @@
+lp.,Ausblick,Temperatur,Feuchtigkeit,Windig,Golf spielen
+0,Regnerisch,Heiß,Hoch,FALSCH,NEIN
+1,Regnerisch,Heiß,Hoch,WAHR,NEIN
+2,Bedeckt,Heiß,Hoch,FALSCH,Ja
+3,Sonnig,Leicht,Hoch,FALSCH,Ja
+4,Sonnig,Cool,Normal,FALSCH,Ja
+5,Sonnig,Cool,Normal,WAHR,NEIN
+6,Bedeckt,Cool,Normal,WAHR,Ja
+7,Regnerisch,Leicht,Hoch,FALSCH,NEIN
+8,Regnerisch,Cool,Normal,FALSCH,Ja
+9,Sonnig,Leicht,Normal,FALSCH,Ja
+10,Regnerisch,Leicht,Normal,WAHR,Ja
+11,Bedeckt,Leicht,Hoch,WAHR,Ja
+12,Bedeckt,Heiß,Normal,FALSCH,Ja
+13,Sonnig,Leicht,Hoch,WAHR,
