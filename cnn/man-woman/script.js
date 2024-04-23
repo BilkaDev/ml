@@ -1,5 +1,7 @@
 class Vision {
-    #ESTIMATION_CONFIG = {flipHorizontal: false};
+    #ESTIMATION_CONFIG = {
+        flipHorizontal: false,
+    }
 
     constructor(detector) {
         this.detector = detector
@@ -10,6 +12,7 @@ class Vision {
         const detectorConfig = {
             runtime: 'mediapipe',
             solutionPath: 'https://cdn.jsdelivr.net/npm/@mediapipe/face_detection',
+            modelType: 'full'
         };
         const detector = await faceDetection.createDetector(model, detectorConfig);
         return new Vision(detector)
@@ -20,19 +23,26 @@ class Vision {
     }
 }
 
-class VideoModel {
+this.stream = null
+
+class CameraModel {
     constructor() {
     }
 
-    setupCamera(videoElement) {
-        return navigator.mediaDevices.getUserMedia({
-            video: {width: 600, height: 400},
-            audio: false
-        }).then(stream => videoElement.srcObject = stream)
+    async getCameraStream() {
+        try {
+            this.stream = await navigator.mediaDevices.getUserMedia({
+                video: {width: 600, height: 400},
+                audio: false
+            })
+            return this.stream
+        } catch (e) {
+            console.error("Error accessing the camera:", e)
+        }
     }
 }
 
-class VideoView {
+class CameraView {
     #app
     #video
     #canvas
@@ -64,7 +74,6 @@ class VideoView {
     }
 
     #videoInit() {
-
         const video = this.#createElement('video')
         video.style.display = 'none'
         video.autoplay = true
@@ -130,19 +139,28 @@ class VideoView {
         console.log(imageDataURL)
     }
 
-    bindSetupCamera(handler) {
-        handler(this.#video)
+    renderVideo(stream) {
+        this.#video.srcObject = stream
     }
 }
 
-class Controller {
+class CameraController {
     constructor(model, view) {
         this.model = model
         this.view = view
+    }
 
-        this.view.bindSetupCamera(this.model.setupCamera)
+    async displayCamera() {
+        const stream = await this.model.getCameraStream()
+        if (stream) {
+            this.view.renderVideo(stream)
+        }
     }
 }
 
 
-const app = new Controller(new VideoModel(), new VideoView())
+document.addEventListener('DOMContentLoaded', async () => {
+    const controller = new CameraController(new CameraModel(), new (CameraView))
+    await controller.displayCamera()
+
+})
